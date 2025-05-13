@@ -27,7 +27,7 @@ Infrastructure includes:
    terraform apply
    ```
 
-# Architecture Diagram
+## Architecture Diagram
 
 ```mermaid
 flowchart TD
@@ -62,3 +62,22 @@ flowchart TD
     random_uuid_uuid --> google_storage_bucket_flask_app_bucket
     google_storage_bucket_flask_app_bucket --> google_storage_bucket_iam_member_public_access
 ```
+
+
+# Validation Report
+
+## Terraform Apply Output
+
+## GCP Console Resources
+
+## Working Application Interface
+
+## Database Connection Test
+
+## Metrics
+ - Deployment Time: ~25 Minutes
+ - Resource Costs(Monthly): $35.47
+   - Compute: $20.56
+   - SQL: $9.37
+   - Storage: $1.90
+   - Networking: $3.65 
