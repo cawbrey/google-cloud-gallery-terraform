@@ -67,12 +67,28 @@ flowchart TD
 # Validation Report
 
 ## Terraform Apply Output
+```sh
+Apply complete! Resources: 10 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bucket_name = "a0121092-1812-4f83-f40b-2b1893d875db"
+bucket_url = "gs://a0121092-1812-4f83-f40b-2b1893d875db"
+vm_external_ip = "35.193.151.161"
+```
 
 ## GCP Console Resources
+![alt text](vm_instance.png)
+![alt text](sql_instance.png)
+![alt text](storage_instance.png)
+![alt text](network_instance.png)
 
 ## Working Application Interface
+![alt text](photo_gallery.png)
 
 ## Database Connection Test
+![alt text](photos_validation.png)
+![alt text](users_validation.png)
 
 ## Metrics
  - Deployment Time: ~25 Minutes
