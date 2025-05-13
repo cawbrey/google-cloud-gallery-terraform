@@ -25,10 +25,7 @@ python3 -m venv gallery_venv
 source gallery_venv/bin/activate
 pip install --upgrade pip
 pip install -r ./requirements.txt
-export FLASK_APP="main.py"
-export FLASK_RUN_PORT=80
-export FLASK_RUN_HOST="0.0.0.0"
-flask run 
+waitress-serve --host 0.0.0.0 --port 80 main:app
 EOF
 
 # Base64 encode the tarball

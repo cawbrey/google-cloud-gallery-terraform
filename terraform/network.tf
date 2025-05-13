@@ -32,7 +32,7 @@ resource "google_compute_firewall" "allow_http" {
   }
 
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["http"]
+  target_tags   = ["http-server"]
 }
 
 resource "google_compute_global_address" "private_ip_address" {
