@@ -7,7 +7,6 @@ from flask_login import (
     current_user,
 )
 from config import Config
-from waitress import serve
 import db
 
 app = Flask(__name__)
@@ -104,7 +103,3 @@ def delete(photo_id):
     db.delete_photo(photo_id, current_user.id)
 
     return redirect(url_for("gallery"))
-
-
-# Run the app using waitress
-serve(app, host="0.0.0.0", port=80)

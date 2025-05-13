@@ -1,6 +1,5 @@
 flask
 flask-login
-waitress
 PyMySQL
 werkzeug
 sqlalchemy
