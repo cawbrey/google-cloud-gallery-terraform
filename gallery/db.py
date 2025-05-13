@@ -22,7 +22,7 @@ def getconn():
       user=config.DB_USER,
       password=config.DB_PASSWORD,
       db=config.DB_NAME,
-      ip_type=IPTypes.PUBLIC
+      ip_type=IPTypes.PRIVATE
     )
     return conn
 

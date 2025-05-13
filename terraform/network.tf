@@ -1,7 +1,5 @@
 resource "google_compute_network" "vpc_network" {
   name                    = "my-custom-mode-network"
-  auto_create_subnetworks = false
-  mtu                     = 1460
 }
 
 resource "google_compute_subnetwork" "default" {
@@ -22,4 +20,35 @@ resource "google_compute_firewall" "allow_ssh" {
 
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["ssh"]
+}
+
+resource "google_compute_firewall" "allow_http" {
+  name    = "allow-http"
+  network = google_compute_network.vpc_network.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["http"]
+}
+
+resource "google_compute_global_address" "private_ip_address" {
+  provider = google
+
+  name          = "private-ip-address"
+  purpose       = "VPC_PEERING"
+  address_type  = "INTERNAL"
+  prefix_length = 16
+  network       = google_compute_network.vpc_network.id
+}
+
+resource "google_service_networking_connection" "private_vpc_connection" {
+  provider = google
+
+  network                 = google_compute_network.vpc_network.id
+  service                 = "servicenetworking.googleapis.com"
+  reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
 }
