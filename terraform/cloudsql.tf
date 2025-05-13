@@ -28,5 +28,5 @@ resource "google_sql_database" "app_db" {
 resource "google_sql_user" "app_user" {
   instance    = google_sql_database_instance.default.name
   name        = var.db_username
-  password_wo = var.db_password
+  password = var.db_password
 }
